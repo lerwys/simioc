@@ -16,10 +16,16 @@ DBD += simioc.dbd
 simioc_DBD += base.dbd
 
 # Include dbd files from all support applications:
-#simioc_DBD += xxx.dbd
+simioc_DBD += asyn.dbd
+simioc_DBD += motorSupport.dbd
+simioc_DBD += devSoftMotor.dbd
+simioc_DBD += motorRecord.dbd
+simioc_DBD += motorSimSupport.dbd
+simioc_DBD += asSupport.dbd
+simioc_DBD += calcSupport.dbd
 
 # Add all the support libraries needed by this IOC
-#simioc_LIBS += xxx
+simioc_LIBS += softMotor motorSimSupport motor asyn autosave calc
 
 # simioc_registerRecordDeviceDriver.cpp derives from simioc.dbd
 simioc_SRCS += simioc_registerRecordDeviceDriver.cpp
