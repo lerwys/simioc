@@ -19,7 +19,7 @@
 # Build settings that are NOT module paths should appear in a
 # CONFIG_SITE file.
 
-AREA_DETECTOR=/home/dchabot/workspace/areadetector-1-9-1
+AREA_DETECTOR=/epics/src/areadetector-1-9-1
 
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
 
