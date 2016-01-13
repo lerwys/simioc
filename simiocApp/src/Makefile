@@ -35,7 +35,7 @@ simioc_LIBS += softMotor motorSimSupport motor simDetector
 simioc_LIBS += NDPlugin ADBase netCDF calc busy autosave asyn
 #simioc_LIBS += NDFileMagick
 #simioc_LIBS += GraphicsMagick++ GraphicsMagickWand GraphicsMagick
-PROD_SYS_LIBS += gomp X11 xml2 png12 bz2 Xext freetype tiff jpeg z
+PROD_SYS_LIBS += gomp X11 xml2 png12 bz2 Xext freetype tiff jpeg z pthread
 PROD_LIBS += PvAPI
 PROD_LIBS += NeXus hdf5 sz
 
