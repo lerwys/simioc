@@ -31,8 +31,9 @@ motorSimCreate( 0, 0, -32000, 32000, 0, 1, 6 )
 # Setup the Asyn layer (portname, low-level driver drvet name, card, number of axes on card)
 drvAsynMotorConfigure("motorSim1", "motorSim", 0, 6)
 
-
-# setup all the simDetector crud
+################################################
+######## setup all the simDetector crud ########
+################################################
 simDetectorConfig("$(PORT)", $(XSIZE), $(YSIZE), 1, 0, 0)
 dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
 dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
@@ -55,6 +56,8 @@ dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=
 
 # Load all other plugins using commonPlugins.cmd
 < ${TOP}/iocBoot/commonPlugins.cmd
+################################################
+
 
 ## autosave/restore machinery
 #save_restoreSet_Debug(0)
