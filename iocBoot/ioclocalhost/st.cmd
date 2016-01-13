@@ -8,7 +8,7 @@
 epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")          
 epicsEnvSet("EPICS_CA_ADDR_LIST", "127.0.0.1")
 
-epicsEnvSet("PREFIX", "13SIM1:")
+epicsEnvSet("PREFIX", "XF:31IDA-BI{Cam:Tbl}")
 epicsEnvSet("PORT",   "SIM1")
 epicsEnvSet("QSIZE",  "20")
 epicsEnvSet("XSIZE",  "1024")
