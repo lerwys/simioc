@@ -19,13 +19,19 @@
 # Build settings that are NOT module paths should appear in a
 # CONFIG_SITE file.
 
+AREA_DETECTOR=/home/dchabot/workspace/areadetector-1-9-1
+
 TEMPLATE_TOP=$(EPICS_BASE)/templates/makeBaseApp/top
+SUPPORT=/usr/lib/epics
+-include $(TOP)/../configure/SUPPORT.$(EPICS_HOST_ARCH)
 
 # If using the sequencer, point SNCSEQ at its top directory:
 #SNCSEQ=$(EPICS_BASE)/../modules/soft/seq
 
+
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/usr/lib/epics
+-include $(TOP)/../configure/EPICS_BASE.$(EPICS_HOST_ARCH)
 
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:

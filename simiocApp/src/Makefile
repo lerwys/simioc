@@ -9,6 +9,8 @@ include $(TOP)/configure/CONFIG
 # Build the IOC application
 
 PROD_IOC = simioc
+
+
 # simioc.dbd will be created and installed
 DBD += simioc.dbd
 
@@ -24,8 +26,20 @@ simioc_DBD += motorSimSupport.dbd
 simioc_DBD += asSupport.dbd
 simioc_DBD += calcSupport.dbd
 
+simioc_DBD += simDetectorSupport.dbd
+simioc_DBD += ADSupport.dbd
+simioc_DBD += NDPluginSupport.dbd
+simioc_DBD += busySupport.dbd
+
 # Add all the support libraries needed by this IOC
-simioc_LIBS += softMotor motorSimSupport motor asyn autosave calc
+simioc_LIBS += softMotor motorSimSupport motor simDetector
+simioc_LIBS += NDPlugin ADBase netCDF calc busy autosave asyn
+#simioc_LIBS += NDFileMagick
+#simioc_LIBS += GraphicsMagick++ GraphicsMagickWand GraphicsMagick
+PROD_SYS_LIBS += gomp X11 xml2 png12 bz2 Xext freetype
+PROD_LIBS += PvAPI
+PROD_LIBS += NeXus hdf5 sz
+PROD_LIBS += tiff jpeg z
 
 # simioc_registerRecordDeviceDriver.cpp derives from simioc.dbd
 simioc_SRCS += simioc_registerRecordDeviceDriver.cpp
