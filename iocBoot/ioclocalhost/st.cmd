@@ -72,8 +72,12 @@ cd ${TOP}/iocBoot/${IOC}
 iocInit()
 
 ## more autosave/restore machinery
-cd ${TOP}/as/req
+#cd ${TOP}/as/req
 #makeAutosaveFiles()
 #create_monitor_set("info_positions.req", 5 , "")
 #create_monitor_set("info_settings.req", 15 , "")
+
+# make sure we can get some images at initialization
+dbpf $(PREFIX)cam1:ArrayCallbacks 'Enable'
+dbpf $(PREFIX)image1:EnableCallbacks 'Enable'
 
