@@ -10,6 +10,7 @@ include $(TOP)/configure/CONFIG
 
 PROD_IOC = simioc
 
+USR_CXXFLAGS += -pthread
 
 # simioc.dbd will be created and installed
 DBD += simioc.dbd
@@ -37,7 +38,7 @@ simioc_LIBS += NDPlugin ADBase netCDF calc busy autosave asyn
 #simioc_LIBS += NDFileMagick
 #simioc_LIBS += GraphicsMagick++ GraphicsMagickWand GraphicsMagick
 PROD_SYS_LIBS += gomp X11 xml2 png12 bz2 Xext freetype
-#PROD_LIBS += PvAPI
+PROD_LIBS += PvAPI
 PROD_LIBS += NeXus hdf5 sz
 PROD_LIBS += tiff jpeg z
 
