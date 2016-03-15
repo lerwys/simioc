@@ -9,7 +9,7 @@ epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST", "127.0.0.1")
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", "10000000")
 
-epicsEnvSet("PREFIX", "XF:31IDA-BI{Cam:Tbl}")
+epicsEnvSet("PREFIX", "sim:det")
 epicsEnvSet("PORT",   "SIM1")
 epicsEnvSet("QSIZE",  "20")
 epicsEnvSet("XSIZE",  "1024")
@@ -25,7 +25,7 @@ simioc_registerRecordDeviceDriver(pdbbase)
 ## Load record instances
 dbLoadTemplate("db/sensor.substitutions")
 dbLoadTemplate("db/motorSim.substitutions")
-dbLoadRecords("db/fakemotor.db", "Sys=XF:31IDA-OP,Dev={Tbl-Ax:FakeMtr},Mtr=XF:31IDA-OP{Tbl-Ax:X1}Mtr")
+dbLoadRecords("db/fakemotor.db", "Sys=sim:,Dev=fake:mtr,Mtr=sim:mtr1")
 
 # Create simulated motors: ( start card , start axis , low limit, high limit, home posn, # cards, # axes to setup)
 motorSimCreate( 0, 0, -32000, 32000, 0, 1, 6 )
