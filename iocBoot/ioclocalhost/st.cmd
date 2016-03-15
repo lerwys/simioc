@@ -9,7 +9,7 @@ epicsEnvSet("EPICS_CA_AUTO_ADDR_LIST", "NO")
 epicsEnvSet("EPICS_CA_ADDR_LIST", "127.0.0.1")
 epicsEnvSet("EPICS_CA_MAX_ARRAY_BYTES", "10000000")
 
-epicsEnvSet("PREFIX", "sim:det")
+epicsEnvSet("PREFIX", "sim:det:")
 epicsEnvSet("PORT",   "SIM1")
 epicsEnvSet("QSIZE",  "20")
 epicsEnvSet("XSIZE",  "1024")
