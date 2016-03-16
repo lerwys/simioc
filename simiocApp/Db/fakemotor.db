@@ -13,24 +13,24 @@ record(seq, "$(Sys)$(Dev)-SP_") {
     field(DOL2, "$(Sys)$(Dev)-SP")
     field(LNK2, "$(Mtr).VAL CP")
 
-    # to re-enable mtr rec processing, write or process "$(Sys)$(Dev)Cmd:Go-Cmd"
+    # to re-enable mtr rec processing, write or process "$(Sys)$(Dev):Go-Cmd"
 }
 
 record(ai, "$(Sys)$(Dev)-I") {
     field(INP, "$(Mtr).RBV CPP")
 }
 
-record(bo, "$(Sys)$(Dev)Cmd:Go-Cmd") {
+record(bo, "$(Sys)$(Dev):Go-Cmd") {
     field(DOL, "0")
     field(OUT, "$(Mtr).DISA CPP")
 }
 
-record(bo, "$(Sys)$(Dev)Cmd:Stop-Cmd") {
+record(bo, "$(Sys)$(Dev):Stop-Cmd") {
     field(VAL, "1")
     field(OUT, "$(Mtr).STOP CPP")
 }
 
-record(bi, "$(Sys)$(Dev)Sts:Moving-Sts") {
+record(bi, "$(Sys)$(Dev):Moving-Sts") {
     field(INP, "$(Mtr).DMOV CPP")
     field(ZNAM, "Moving")
     field(ONAM, "Done")
