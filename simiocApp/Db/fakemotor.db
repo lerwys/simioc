@@ -6,11 +6,13 @@ record(ai, "$(Sys)$(Dev)-i") {
 }
 
 record(ao, "$(Sys)$(Dev):go-cmd") {
+    field(OMSL, "closed_loop")
     field(DOL, "$(Sys)$(Dev)-sp NPP")
     field(OUT, "$(Mtr).VAL PP")
 }
 
 record(bo, "$(Sys)$(Dev):stop-cmd") {
+    field(OMSL, "closed_loop")
     field(DOL, "1")
     field(OUT, "$(Mtr).STOP PP")
 }
