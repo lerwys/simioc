@@ -52,8 +52,8 @@ dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDStdArrays.template", "P=$(PREF
 #dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int32,FTVL=LONG,NELEMENTS=3145728")
 
 # This loads a database to tie the ROI size to the detector readout size
-dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI1:")
-dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI2:")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI1:")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI2:")
 
 # Load all other plugins using commonPlugins.cmd
 < ${TOP}/iocBoot/commonPlugins.cmd
