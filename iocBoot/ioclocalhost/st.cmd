@@ -36,24 +36,24 @@ drvAsynMotorConfigure("motorSim1", "motorSim", 0, 6)
 ######## setup all the simDetector crud ########
 ################################################
 simDetectorConfig("$(PORT)", $(XSIZE), $(YSIZE), 1, 0, 0)
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/ADBase.template",     "P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/simDetector.template","P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/ADBase.template",     "P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/simDetector.template","P=$(PREFIX),R=cam1:,PORT=$(PORT),ADDR=0,TIMEOUT=1")
 
 # Create a standard arrays plugin, set it to get data from first simDetector driver.
 NDStdArraysConfigure("Image1", 3, 0, "$(PORT)", 0)
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT),NDARRAY_ADDR=0")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDPluginBase.template","P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,NDARRAY_PORT=$(PORT),NDARRAY_ADDR=0")
 
 # This creates a waveform large enough for 1024x1024x3 (e.g. RGB color) arrays.
 # This waveform only allows transporting 8-bit images
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=3145728")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int8,FTVL=UCHAR,NELEMENTS=3145728")
 # This waveform only allows transporting 16-bit images
-#dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=USHORT,NELEMENTS=3145728")
+#dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int16,FTVL=USHORT,NELEMENTS=3145728")
 # This waveform allows transporting 32-bit images
-#dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int32,FTVL=LONG,NELEMENTS=3145728")
+#dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDStdArrays.template", "P=$(PREFIX),R=image1:,PORT=Image1,ADDR=0,TIMEOUT=1,TYPE=Int32,FTVL=LONG,NELEMENTS=3145728")
 
 # This loads a database to tie the ROI size to the detector readout size
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI1:")
-dbLoadRecords("$(AREA_DETECTOR)/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI2:")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI1:")
+dbLoadRecords("$(AREA_DETECTOR)/ADCore/ADApp/Db/NDROI_sync.template", "P=$(PREFIX),CAM=cam1:,ROI=ROI2:")
 
 # Load all other plugins using commonPlugins.cmd
 < ${TOP}/iocBoot/commonPlugins.cmd
